@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>jetmeout</title>
+
+      <script type="text/template" id="stripe-field-description">
+         <div class="stripe-description">
+         	<p><%=price%></p>
+         	<p><%=advice%></p>
+         	<a href="http://www.stripe.com" target="_blank" class="stripe-logo">
+         		<%=stripeBanner%>
+         	</a>
+         </div>
+      </script>
+      <script type="text/template" id="stripe-logo">
+         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         	 width="81.216px" height="33.225px" viewBox="0 0 81.216 33.225" enable-background="new 0 0 81.216 33.225" xml:space="preserve">
+         	<g>
+         		<defs>
+         			<path id="SVGID_1_" d="M39.262,26.75h6.475V8.69h-6.475V26.75z M0,14.244c0,3.306,2.181,4.533,3.715,5.248l0.818,0.375
+         				c1.056,0.478,1.533,0.785,1.533,1.466c0,0.884-0.75,1.021-1.738,1.021c-0.886,0-2.896-0.477-4.056-0.783v4.668
+         				c1.33,0.408,3.306,0.852,5.18,0.852c2.896,0,6.952-0.682,6.952-6.132c0-3.408-2.215-4.566-3.817-5.282l-0.681-0.307
+         				c-1.125-0.512-1.602-0.75-1.602-1.466c0-0.681,0.579-0.886,1.363-0.886c1.158,0,3.101,0.409,4.055,0.716V9.201
+         				C10.905,8.895,9.337,8.35,6.952,8.35C3.783,8.35,0,9.405,0,14.244 M32.82,10.428l-0.954-1.738H26.72V26.75h6.475v-12.37
+         				c0.341-0.204,1.125-0.613,2.147-0.613c0.886,0,1.738,0.17,2.385,0.341V8.724c-0.307-0.17-0.988-0.374-2.011-0.374
+         				C34.217,8.35,33.195,9.304,32.82,10.428 M54.939,22.387v-8.722c0.408-0.238,1.158-0.545,1.533-0.545
+         				c1.057,0,1.363,0.442,1.363,4.498c0,3.986-0.682,4.941-1.805,4.941C55.791,22.559,55.246,22.491,54.939,22.387 M54.667,9.814
+         				l-0.955-1.125h-5.248v24.536h6.475v-6.51c0.613,0.137,1.465,0.375,2.283,0.375c2.385,0,7.088-0.135,7.088-9.472
+         				c0-8.52-3.135-9.269-5.793-9.269C57.052,8.35,55.656,8.929,54.667,9.814 M73.992,12.2c1.191,0,1.191,1.737,1.191,4.157h-2.725
+         				C72.525,14.21,72.355,12.2,73.992,12.2 M66.017,17.789c0,8.655,4.941,9.301,8.996,9.301c2.25,0,4.533-0.646,5.283-0.92v-4.703
+         				c-0.955,0.169-3.443,0.716-5.283,0.716c-1.602,0-2.555-0.375-2.555-2.317h8.758v-2.146c0-7.225-3.033-9.371-7.225-9.371
+         				C69.902,8.35,66.017,10.155,66.017,17.789 M16.291,4.601l-0.818,4.089h-2.385v4.124h2.385v9.064c0,5.01,3.442,5.213,5.283,5.213
+         				c1.431,0,3.612-0.34,4.6-0.578v-4.602c-0.477,0.068-1.908,0.273-2.317,0.273c-0.716,0-1.091-0.238-1.091-1.464v-7.906h2.556
+         				l0.852-4.124h-3.408V3.237L16.291,4.601z M39.296,3.237c0,1.772,1.397,3.237,3.203,3.237c1.807,0,3.203-1.465,3.203-3.237
+         				C45.702,1.466,44.306,0,42.5,0C40.693,0,39.296,1.466,39.296,3.237"/>
+         		</defs>
+         		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+         	</g>
+         </svg>
+      </script>
+      <script type="text/template" id="stripe-logo-fallback">
+         <b>Stripe</b>
+      </script>
+      <script type="text/javascript">
+         var settings = {
+             browser: "default",
+             uid: "LXdNYL",
+             language: "en",
+             paths: {
+                 submit: "/app/form/submit/LXdNYL",
+                 token: "/app/form/result/token/LXdNYL/default"
+             },
+             uniquePath: "/app/form/field/unique/",
+             uploadPath: "/app/form/field/uploadCredentials/",
+             signupPath: "/signup",
+             lessPath: "/bundles/quickyformapp/css/",
+             parent: "",
+             hiddenFieldsEnabled: false,
+             hiddenFields: [],
+             font: 'Oswald:400,700',
+             showLogo: '1',
+             createdAt: '2016-08-26T19:36:56+0000',
+             accountId: '4335732',
+             userId: '4334798',
+             accountPlan: 'Basic',
+             stripePublishableKey: '',
+             showLoadingBranding: true,
+             colors: {
+                 primary: '#614E97',
+                 secondary: '#614E97'
+             },
+             baseAssetPath: '/',
+             collect: true,
+             "featureToggles": {
+                 "retrySubmitEnabled": true
+             },
+             redirectAfterSubmitEnabled: false,
+             redirectAfterSubmitUrl: '',
+         }
+      </script>
+      <script type="text/template" id="component-opinion-scale">
+         <div class="component-choices"></div>
+         <ul class="labels layout-thee-columns layout-columns color-secondary text-subpixel-antialiased">
+         	<li class="first text-size-m text-align-left negativeLabel"></li>
+         	<li class="second text-size-m text-align-center neutralLabel"></li>
+         	<li class="third text-size-m text-align-right positiveLabel"></li>
+         </ul>
+      </script>
+      <script type="text/template" id="component-choice-simple">
+         <input <%=checked%> type="radio" value="<%=value%>"/><br/>
+         <span><%=label%></span>
+      </script>
+      <script type="text/template" id="component-choice-square">
+         <div class="choice-wrapper">
+         	<div class="label"><%=label%></div>
+         	<div class="line"></div>
+         	<div class="aux">
+         		<div class="inset"></div>
+         		<div class="bg"></div>
+         		<div class="bd"></div>
+         		<div class="overlay"></div>
+         	</div>
+         	<div class="background"></div>
+         </div>
+      </script>
+      <script type="text/template" id="icon-cloud">
+         <svg class="icon-cloud" width="132px" height="85px" viewBox="0 0 132 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+         	<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+         		<g id="Artboard-3" sketch:type="MSArtboardGroup" fill="#000000">
+         			<path d="M79,85 L108,85 L108,84.9566146 C121.385069,84.1801879 132,73.0797189 132,59.5 C132,46.906961 122.871557,36.445984 110.870729,34.373127 C110.956288,33.426871 111,32.4685402 111,31.5 C111,14.1030304 96.8969696,0 79.5,0 C65.9387999,0 54.3791415,8.56961829 49.9409394,20.5889401 L49.9409394,20.5889401 C47.0317445,16.5954404 42.3189711,14 37,14 C28.163444,14 21,21.163444 21,30 C21,31.4892152 21.2034561,32.9309107 21.5840885,34.2988067 C9.35984257,36.1828033 0,46.7483475 0,59.5 C0,73.4162144 11.1475089,84.7287886 25,85 L59,85 L59,66 L43,66 L69,32 L95,66 L79,66 L79,85 Z" id="Oval-6" sketch:type="MSShapeGroup"></path>
+         		</g>
+         	</g>
+         </svg>
+      </script>
+      <script type="text/template" id="icon-file">
+         <svg class="icon-file" version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="85px" viewBox="0 0 65 85" enable-background="new 0 0 65 85" xml:space="preserve">
+         	<g id="Page-1" sketch:type="MSPage">
+         		<g id="Artboard-1" transform="translate(97.000000, 0.000000)" sketch:type="MSArtboardGroup">
+         			<g id="Rectangle-4-_x2B_-Line-_x2B_-Line" transform="translate(3.000000, 1.000000)" sketch:type="MSLayerGroup">
+         				<path id="Rectangle-4" sketch:type="MSShapeGroup" fill="none" stroke="#000000" stroke-width="3" d="M-55.333,1
+         					c0.457,0-42,0-42,0v79h61V18C-36.333,18-54.876,1-55.333,1z"/>
+         				<path id="Line" sketch:type="MSShapeGroup" fill="none" stroke="#000000" stroke-width="2.837" stroke-linecap="square" d="
+         					M-55.833,1.579V18.5"/>
+         				<path id="Line_1_" sketch:type="MSShapeGroup" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="square" d="
+         					M-55.333,18.5h19"/>
+         			</g>
+         		</g>
+         	</g>
+         </svg>
+      </script>
+      <script type="text/template" id="component-file-upload-box">
+         <div class="box">
+         	<div class="box-cancel">
+         		<svg viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" x="0px" y="0px" width="14px" height="14px">
+         			<g>
+         				<path id="Line" d="M 11.5 1.5 L 1.5 11.5 " stroke="#000000" stroke-width="2" fill="none"/>
+         				<path id="Line2" d="M 1.5 1.5 L 11.5 11.5 " stroke="#000000" stroke-width="2" fill="none"/>
+         			</g>
+         		</svg>
+         		<div class="cancel-background"></div>
+         	</div>
+         	<span class="tick"></span>
+         	<input type="file" name="file"/>
+         	<div class="box-content-wrapper">
+         		<div class="box-content">
+         			<div class="box-image"></div>
+         			<div class="box-text"></div>
+         		</div>
+         	</div>
+         	<div class="aux">
+         		<div class="inset"></div>
+         		<div class="bg"></div>
+         		<div class="bd"></div>
+         		<div class="overlay"></div>
+         	</div>
+         	<div class="background"></div>
+         </div>
+      </script>
+      <script type="text/template" id="component-file-upload-box-simple">
+         <input type="file" name="file"/>
+         <p class="box-text"></p>
+            <div class="progress-bar-target"></div>
+      </script>
+      <script type="text/template" id="component-file-upload-progress-bar">
+         <div class="progress-bar">
+         	<div class="bar"></div>
+         </div>
+      </script>
+      <script type="text/template" id="component-file-upload-text-start">
+         <p>
+         	<%= textChoose %>
+         </p>
+         <p>
+         	<%= textSizeLimit %>: <%= maxFileSize %> MB
+         </p>
+      </script>
+      <script type="text/template" id="component-file-upload-text-uploading">
+         <p>
+         	<b><%= textUploading %></b>
+         </p>
+         <p>
+         	<%= fileName %>
+         </p>
+      </script>
+      <script type="text/template" id="component-file-upload-text-preview">
+         <p>
+         	<b><%= fileName %></b>
+         </p>
+      </script>
+      <script type="text/template" id="component-confirm-button">
+         <div class="button-wrapper confirm">
+         </div>
+         <div class="text"></div>
+         <div class="aux no-hover">
+         	<div class="inset"></div>
+         	<div class="bg"></div>
+         	<div class="bd"></div>
+         	<div class="overlay"></div>
+         </div>
+      </script>
+      <script type="text/javascript">
+         var serializedForm = {"fields":[{"id":28501097,"question":"What's your budget?","startAtOne":false,"negativeLabel":"0","neutralLabel":"50","positiveLabel":"over 100","maxValue":5,"label":"What's your budget?","required":true,"attachment":"","calculations":[],"type":"opinion-scale","position":0},{"id":28501396,"question":"How long?","multiple":false,"other":false,"choices":{"36802828":{"id":36802828,"label":"Small (0-3)","position":0},"36802829":{"id":36802829,"label":"Medium (3-5)","position":1},"36802830":{"id":36802830,"label":"Large (over 5)","position":2}},"vertical":false,"randomize":false,"label":"How long?","required":true,"attachment":"","calculations":[],"type":"list","position":1},{"id":28501421,"question":"Please enter you name \/ card","attachment":"","required":true,"type":"textfield","position":2,"label":"Please enter you name \/ card","calculations":[]},{"id":28501762,"question":"Your journey","calculations":[],"type":"list-image","supersize":false,"labels_enabled":true,"attachment":"","position":3,"label":"Your journey","other":false,"multiple":false,"choices":{"36803354":{"id":36803354,"label":"one","position":0,"image":{}},"36803355":{"id":36803355,"label":"two","position":1,"image":{}},"36803356":{"id":36803356,"label":"three","position":2,"image":{}},"36803357":{"id":36803357,"label":"four","position":3,"image":{}}},"randomize":false,"required":true}],"outros":[],"intros":[{"id":1414460,"image":{},"attachment":"image","body":"Take a break, make a journey","body_enabled":true,"button":"JET","button_enabled":true,"description":"","description_enabled":false,"enabled":true}],"id":2099079,"uid":"LXdNYL","name":"jetmeout","design":{}};
+      </script>
+      <link rel="stylesheet" href="assets/default.css" type="text/css">
+      <link id="font" href="assets/css.css" rel="stylesheet" type="text/css">
+   </head>
+   <body class="preload  default  repeat proportion branding ">
+      <div id="typeform" class="">
+         <div id="loader">
+            <div class="wrapper">
+               <div id="spin"></div>
+               <div id="loadingLogo" style="display:none">
+
+               </div>
+            </div>
+            <script>
+               var formCreationDate = Date.parse('2016-08-26T19:36:56+0000'.split('T')[0]), featureReleaseDate = Date.parse("Apr 16, 2014"), showLoadingBranding = 1;
+               if (formCreationDate > featureReleaseDate && showLoadingBranding)
+               	document.getElementById("loadingLogo").style.display = 'block';
+            </script>
+         </div>
+         <div id="1414460" class="intro screen " data-field="true">
+            <div class="content-wrapper">
+               <div class="content">
+                  <div class="media">
+                     <div class="attachment" data-attachment='{"image":"https:\/\/d4z6dx8qrln4r.cloudfront.net\/image-71d9cb7e21d2cf406681a3c720f56e18-default.jpeg","width":800,"height":800,"video_source":"","video_id":""}'>
+                        <img src="//dkl3g0z0k6qzr.cloudfront.net/quickyformapp/images/lazy.png" data-original="" />
+                     </div>
+                  </div>
+                  <div class="text">
+                     Take a break, make a journey
+                  </div>
+                  <div class="button-wrapper">
+                     <div class="button general full enabled hover-effect" style="">JET</div>
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer">
+               <div class="persistent-wrapper">
+                  <div class="persistent background"></div>
+                  <div class="persistent"></div>
+               </div>
+               <div class="overlay"></div>
+               <div class="content">
+                  <div class="button-wrapper">
+                     <a class="button general full enabled hover-effect" target="_parent" style="">JET</a>
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+               </div>
+               <div class="scroll-smooth"></div>
+            </div>
+         </div>
+         <div class="form">
+            <ul class="questions">
+               <li class="opinion-scale active required  " id="28501097"  data-model='{"id":28501097,"type":"opinion-scale","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                    <div style="text-align:center;">
+                      <img src="porco.png" style="width:200px"/>
+                    </div>
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+
+                     <div class="question"><span>What's your budget?</span></div>
+                     <div class="content">
+                       <div class="description">
+                          Max. amount of money you wanna spent
+                       </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="list active required  " id="28501396"  data-model='{"id":28501396,"type":"list","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                    <div style="text-align:center;">
+                      <img src="giorni.png" style="width:200px"/>
+                    </div>
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>How long?</span></div>
+                     <div class="content">
+                        <div class="description">
+                           Max. duration of your holiday (num. of days)
+                        </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                                 <div class="multiple">Choose as many as you like</div>
+                                 <ul class="columns">
+                                    <li id="36802828" class="container">
+                                       <input type="hidden" name="value" value="Small (0-3)"/>
+                                       <div class="letter"><span>A</span></div>
+                                       <span class="label">Small (0-3)</span>
+                                       <span class="tick"></span>
+                                       <div class="aux ">
+                                          <div class="inset"></div>
+                                          <div class="bg"></div>
+                                          <div class="bd"></div>
+                                          <div class="overlay"></div>
+                                       </div>
+                                    </li>
+                                    <li id="36802829" class="container">
+                                       <input type="hidden" name="value" value="Medium (3-5)"/>
+                                       <div class="letter"><span>B</span></div>
+                                       <span class="label">Medium (3-5)</span>
+                                       <span class="tick"></span>
+                                       <div class="aux ">
+                                          <div class="inset"></div>
+                                          <div class="bg"></div>
+                                          <div class="bd"></div>
+                                          <div class="overlay"></div>
+                                       </div>
+                                    </li>
+                                    <li id="36802830" class="container">
+                                       <input type="hidden" name="value" value="Large (over 5)"/>
+                                       <div class="letter"><span>C</span></div>
+                                       <span class="label">Large (over 5)</span>
+                                       <span class="tick"></span>
+                                       <div class="aux ">
+                                          <div class="inset"></div>
+                                          <div class="bg"></div>
+                                          <div class="bd"></div>
+                                          <div class="overlay"></div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="clear"></div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+
+               <li class="textfield active required  " id="285014214"  data-model='{"id":285014214,"type":"textfield","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>What's is your email?</span></div>
+                     <div class="content">
+                       <div class="description">
+                         Needit for invoice &amp; communication
+                       </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                                 <div class="input">
+                                    <input class=""  type="text" placeholder="your@mail.com"/>
+                                 </div>
+                              </div>
+                              <div class="clear"></div>
+                           </div>
+                           <div class="clear"></div>
+
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+
+               <li class="textfield active required  " id="285014211"  data-model='{"id":285014211,"type":"textfield","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>Please enter your Credit or Debit Card number:</span></div>
+
+                     <div class="content">
+                       <div class="description">
+
+                       </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                                 <div class="input">
+                                    <input class=""  type="text" placeholder="number"/>
+                                 </div>
+                              </div>
+                              <div class="clear"></div>
+                           </div>
+                           <div class="clear"></div>
+
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+
+               <li class="textfield active required  " id="285014212"  data-model='{"id":285014212,"type":"textfield","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>Your card's expiry (mm/yy):</span></div>
+                     <div class="content">
+                       <div class="description">
+
+                       </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                                 <div class="input">
+                                    <input class=""  type="text" placeholder="12/12"/>
+                                 </div>
+                              </div>
+                              <div class="clear"></div>
+                           </div>
+                           <div class="clear"></div>
+
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+
+               <li class="textfield active required  " id="285014213"  data-model='{"id":285014213,"type":"textfield","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>The CVC number:</span></div>
+                     <div class="content">
+                       <div class="description">
+
+                       </div>
+                        <div class="content-wrapper">
+                           <div class="attachment-wrapper">
+                              <div class="control">
+                                 <div class="input">
+                                    <input class=""  type="text" placeholder="111"/>
+                                 </div>
+                              </div>
+                              <div class="clear"></div>
+                           </div>
+                           <div class="clear"></div>
+
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+
+               <li class="list-image active required  " id="28501762"  data-model='{"id":28501762,"type":"list-image","name":"","required":true,"showPadlockIcon":false}'>
+                  <div class="wrapper">
+                     <div class="item">
+                        <span></span>
+                        <div class="arrow">
+                           <div class="arrow-right"></div>
+                        </div>
+                     </div>
+                     <div class="question"><span>Select your journey</span></div>
+                     <div class="content">
+                        <div class="description">
+                           Here some lastminute proposal
+                        </div>
+                        <div class="content-wrapper">
+                           <div class="multiple">Choose as many as you like</div>
+                           <ul class="columns">
+                              <li id="36803354" class="Border container">
+                                 <input type="hidden" name="value" value="one"/>
+                                 <div class="tick-wrapper"></div>
+                                 <span class="tick"></span>
+                                 <div class="image-wrapper">
+                                    <img src="city/florence.png" data-original="city/florence.png" alt="one" width="230" height="230" />
+                                 </div>
+                                 <div class="text">
+                                    <div class="label">
+                                       <div class="letter"><span>A</span></div>
+                                       <div class="caption">Florence</div>
+                                    </div>
+                                    <div class="label2">
+                                      + info
+                                    </div>
+                                 </div>
+                                 <div class="aux ">
+                                    <div class="inset"></div>
+                                    <div class="bg"></div>
+                                    <div class="bd"></div>
+                                    <div class="overlay"></div>
+                                 </div>
+                              </li>
+                              <li id="36803355" class="Border container">
+                                 <input type="hidden" name="value" value="two"/>
+                                 <div class="tick-wrapper"></div>
+                                 <span class="tick"></span>
+                                 <div class="image-wrapper">
+                                    <img src="city/como.png" data-original="city/como.png" alt="two" width="230" height="230" />
+                                 </div>
+                                 <div class="text">
+                                    <div class="label">
+                                       <div class="letter"><span>B</span></div>
+                                       <div class="caption">Como</div>
+                                    </div>
+                                    <div class="label2">
+                                      + info
+                                    </div>
+                                 </div>
+                                 <div class="aux ">
+                                    <div class="inset"></div>
+                                    <div class="bg"></div>
+                                    <div class="bd"></div>
+                                    <div class="overlay"></div>
+                                 </div>
+                              </li>
+                              <li id="36803356" class="Border container">
+                                 <input type="hidden" name="value" value="three"/>
+                                 <div class="tick-wrapper"></div>
+                                 <span class="tick"></span>
+                                 <div class="image-wrapper">
+                                    <img src="city/pisa.png" data-original="city/pisa.png" alt="three" width="230" height="230" />
+                                 </div>
+                                 <div class="text">
+                                    <div class="label">
+                                       <div class="letter"><span>C</span></div>
+                                       <div class="caption">Pisa</div>
+                                    </div>
+                                    <div class="label2">
+                                      + info
+                                    </div>
+                                 </div>
+                                 <div class="aux ">
+                                    <div class="inset"></div>
+                                    <div class="bg"></div>
+                                    <div class="bd"></div>
+                                    <div class="overlay"></div>
+                                 </div>
+                              </li>
+                              <li id="36803357" class="Border container">
+                                 <input type="hidden" name="value" value="four"/>
+                                 <div class="tick-wrapper"></div>
+                                 <span class="tick"></span>
+                                 <div class="image-wrapper">
+                                    <img src="city/rome.png" data-original="city/rome.png" alt="four" width="230" height="230" />
+                                 </div>
+                                 <div class="text">
+                                    <div class="label">
+                                       <div class="letter"><span>D</span></div>
+                                       <div class="caption">Rome</div>
+                                    </div>
+                                    <div class="label2">
+                                      + info
+                                    </div>
+                                 </div>
+                                 <div class="aux ">
+                                    <div class="inset"></div>
+                                    <div class="bg"></div>
+                                    <div class="bd"></div>
+                                    <div class="overlay"></div>
+                                 </div>
+                              </li>
+                           </ul>
+                           <div class="clear"></div>
+                           <div class="clear"></div>
+                           <div class="message ">
+                              <span></span>
+                              <div></div>
+                           </div>
+                           <div class="confirm container">
+                              <div class="button-wrapper confirm">
+                                 <div class="button nav enabled"><span>Ok</span><span class="confirm"></span> 	</div>
+                              </div>
+                              <div class="text">press <strong>ENTER</strong></div>
+                              <div class="aux no-hover">
+                                 <div class="inset"></div>
+                                 <div class="bg"></div>
+                                 <div class="bd"></div>
+                                 <div class="overlay"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+            <div class="footer-confirm">
+               <div class="persistent background"></div>
+               <div class="wrapper">
+                  <div class="content">
+                     <div class="button-wrapper confirm">
+                        <div class="button nav enabled hover-effect"><span>Ok</span><span class="confirm"></span> 	</div>
+                     </div>
+                     <div class="text">
+                        <span class="default">press <strong>ENTER</strong></span>
+                        <span class="textarea">press <strong>ENTER</strong></span>
+                        <span class="multiple">press <strong>ENTER</strong></span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="fixed-footer" class="lightness-step">
+               <div class="overlay"></div>
+               <div class="persistent background"></div>
+               <div class="nav-buttons">
+                  <div class="button-wrapper up">
+                     <div class="button nav enabled hover-effect"><span></span><span class="up"></span> 	</div>
+                  </div>
+                  <div class="button-wrapper down">
+                     <div class="button nav enabled hover-effect"><span></span><span class="down"></span> 	</div>
+                  </div>
+               </div>
+               <div class="button-wrapper by">
+
+               </div>
+               <div class="clear"></div>
+               <div class="content">
+                  <div id="progress"></div>
+               </div>
+            </div>
+            <div id="unfixed-footer" class="lightness-step">
+               <div class="footer-message">
+                  <div class="background"></div>
+                  <div class="content"><span class="default-message"></span></div>
+               </div>
+               <div class="persistent background lightness-step"></div>
+               <div class="content">
+                  <div class="button-wrapper submit">
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+                  <div class="button-wrapper review">
+                     <div class="button general red enabled hover-effect">Review</div>
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+                  <div class="phishing-notice primaryColor">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="0" class="outro screen defaultOutroBranded" data-field="true">
+            <div class="content-wrapper">
+               <div class="content">
+                  <div class="media">
+                     <div class="attachment" data-attachment='{"image":"\/\/dkl3g0z0k6qzr.cloudfront.net\/quickyformapp\/images\/branded_animated.gif","width":"120","height":"120","video_source":"","video_id":""}'>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-original="" data-first-frame="//dkl3g0z0k6qzr.cloudfront.net/quickyformapp/images/branded_animated.gif" />
+                     </div>
+                  </div>
+                  <div class="text">
+                     Thanks for completing this typeform<br/>Now <strong>create your own</strong> — it's free, easy & beautiful
+                  </div>
+                  <input id="redirect-button-url" class="redirect" type="hidden" value="https://demo8u69appmsguo.typeform.com/signup?utm_campaign=LXdNYL&amp;utm_source=typeform.com-4335732-Basic&amp;utm_medium=typeform&amp;utm_content=typeform-thankyoubutton&amp;utm_term=EN">
+                  <div class="button-wrapper">
+                     <a class="button general full enabled" target="_blank">Create a <strong>typeform</strong></a>
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer">
+               <div class="persistent-wrapper">
+                  <div class="persistent background"></div>
+                  <div class="persistent"></div>
+               </div>
+               <div class="overlay"></div>
+               <div class="content">
+                  <div class="button-wrapper">
+                     <a class="button general full enabled hover-effect" target="_blank" style="">Create a <strong>typeform</strong></a>
+                     <div class="button-text">press <strong>ENTER</strong></div>
+                  </div>
+               </div>
+               <div class="scroll-smooth"></div>
+            </div>
+         </div>
+         <div id="background">
+            <div></div>
+         </div>
+      </div>
+      <ul id="texts" style="display:none;">
+         <li id="keyboard">keyboard</li>
+         <li id="key">Key</li>
+         <li id="tab-button">Ok</li>
+         <li id="continue-button">Continue</li>
+         <li id="button-tip-default">press <strong>ENTER</strong></li>
+         <li id="button-tip-multiple">button-tip-multiple</li>
+         <li id="button-tip-textarea">press <strong>ENTER</strong></li>
+         <li id="review-button">Review</li>
+         <li id="next-validation">Next validation</li>
+         <li id="submit-button">Buy it</li>
+         <li id="phishing-notice">Never submit passwords!</li>
+         <li id="report-phishing">Report abuse</li>
+         <li id="report-phishing-link">https://www.typeform.com/help/report-abuse/</li>
+         <li id="multiple">Choose as many as you like</li>
+         <li id="other">Other</li>
+         <li id="resizing">resizing</li>
+         <li id="private">This form is in private mode. Please do not share this url.</li>
+         <li id="private-embed">This form is in private mode.</li>
+         <li id="trial-private">This typeform is in Private mode and can only be accessed by you.</li>
+         <li id="preview">preview</li>
+         <li id="end">end</li>
+         <li id="incomplete">Some mandatory fields are blank</li>
+         <li id="default-text">Answer goes here...</li>
+         <li id="share">Check this out!</li>
+         <li id="y">Y</li>
+         <li id="yes">Yes</li>
+         <li id="n">N</li>
+         <li id="no">No</li>
+         <li id="success">Done! Your information was sent perfectly.</li>
+         <li id="image-placeholder-1">Upload your logo or an image / video</li>
+         <li id="image-placeholder-2">We’ll take care of the rest!</li>
+         <li id="placeholder-description">Description text goes here...</li>
+         <li id="progress-proportion">{{step}} of {{total}} answered</li>
+         <li id="progress-percent">{{percent}}% completed</li>
+         <li id="meta-description">Built with Typeform, the FREE online form builder that lets you create beautiful, mobile-friendly online forms, surveys & much more. Try it out now!</li>
+         <li id="advert-footer">Create your own <b>typeform</b>...</li>
+         <li id="advert-footer-core">Create your own <b>typeform</b>...</li>
+         <li id="advert-thankyou">Create awesome forms & surveys with <a  href="https://www.typeform.com/?{{QUERY}}" target="_blank">Typeform</a></li>
+         <li id="legalyes">I accept</li>
+         <li id="legalno">I don’t accept</li>
+         <li id="type-select">Type or select an option</li>
+         <li id="type-select-touch">Select an option</li>
+         <li id="not-found">No suggestions found</li>
+         <li id="banner-text">Ask awesomely...</li>
+         <li id="banner-link">Create your own <b>typeform</b> free</li>
+         <li id="banner-link-core">Create your own <b>typeform</b> free</li>
+         <li id="payment_description_price">Your credit card will be charged: <%=price%></li>
+         <li id="payment_description_advice">We never store your Credit Card number or CVC number!</li>
+         <li id="payment_description_stripe"><span>Secured by</span> <%=logo%></li>
+         <li id="credit_card_number">Please enter your Credit or Debit Card number:</li>
+         <li id="cvc_number">The CVC number:</li>
+         <li id="cvc_description">(3 or 4 digit security number on the back of your card)</li>
+         <li id="credit_card_name">The name on your card:</li>
+         <li id="expiry_month">Your card's expiry month:</li>
+         <li id="expiry_year">Your card's expiry year:</li>
+         <li id="credit_card_number_error">credit_card_number_error</li>
+         <li id="credit_card_cvc_error">credit_card_cvc_error</li>
+         <li id="file-upload-choose"><b>Choose file</b></li>
+         <li id="file-upload-drag">or <b>drag here</b></li>
+         <li id="file-upload-uploading">Uploading...</li>
+         <li id="file-upload-sizeLimit">Your file is too big</li>
+         <li id="file-upload-maxSize">Size limit</li>
+         <li id="file-upload-processing">Your file is still uploading, please wait...</li>
+         <li id="file-upload-upload-error">An error occurred while uploading the file</li>
+         <li id="file-upload-must-upload"><strong>Ooops!</strong> You must upload a file</li>
+         <li id="textarea-newline-tip">To add a paragraph, press <strong>SHIFT</strong> + <strong>ENTER</strong></li>
+         <li id="ranking-field-tip">Drag and drop the choices...</li>
+         <li id="shortcut">shortcut</li>
+         <li id="legalquestion">legalquestion</li>
+         <li id="yesnoanswer">yesnoanswer</li>
+         <li id="proportional">proportional</li>
+         <li id="correct">Please, correct the errors listed below</li>
+         <li id="required">Please fill this in</li>
+         <li id="duplicated"><strong>Mmm...</strong> Seems this value has already been entered by someone else</li>
+         <li id="invalid"><strong>Be careful!</strong> This value is not valid!</li>
+         <li id="invalid-date">Mmm… That date does not look valid</li>
+         <li id="must-select"><strong>Ooops!</strong> You must make a selection</li>
+         <li id="must-enter"><strong>Ooops!</strong> You need to enter a value</li>
+         <li id="maxlength">Type no more than {{MAXLENGTH}} characters</li>
+         <li id="terms">You must agree to the Terms &amp; Conditions</li>
+         <li id="email">Mmm… That email does not look valid</li>
+         <li id="website">Mmm… That web address does not exist</li>
+         <li id="minmax">You must enter a number between {{MIN}} and {{MAX}}</li>
+         <li id="min">You must enter a number greater than {{MIN}}</li>
+         <li id="max">You must enter a number lower than {{MAX}}</li>
+         <li id="review">{{NUM}} answer(s) need completing</li>
+         <li id="connection">Oh no, you can’t seem to connect with the server right now…</li>
+         <li id="server">Server error! Your request could not be processed.</li>
+         <li id="slow-submission-on-submit">It's taking slightly longer than usual to submit your response. Please leave the page open and we'll continue trying.</li>
+         <li id="retrying-in-time-submission">Retrying in {{NEXT_TRY}}s</li>
+         <li id="retrying-submission">Retrying...</li>
+         <li id="retry-now">retry-now</li>
+         <li id="form-down">The typeform {{NAME}}, is currently unavailable. Please try again in a few moments.</li>
+         <li id="form-empty">There is no content yet!</li>
+         <li id="fallback-alert">You are viewing this typeform in "Simple" mode.<br/>This is because your device is not yet supported on the Typeform platform.</li>
+         <li id="warning-close-when-submitting">We are still submitting your response. Navigating away from the page may cause your response to be lost.</li>
+         <li id="incorrect_number">The card number is incorrect.</li>
+         <li id="invalid_number">The card number is not a valid credit card number.</li>
+         <li id="invalid_cvc">The card's security code is invalid.</li>
+         <li id="invalid_name">You need to enter the name which appears on your credit card.</li>
+         <li id="invalid_expiry_month">The card's expiration month is invalid.</li>
+         <li id="invalid_expiry_year">The card's expiration year is invalid.</li>
+         <li id="expired_card">The card has expired.</li>
+         <li id="incorrect_cvc">The card's security code is incorrect.</li>
+         <li id="card_declined">The card was declined.</li>
+         <li id="processing_error">An error occurred while processing the card.</li>
+         <li id="payment_sync">Price calculation is invalid, please try again</li>
+         <li id="generic-error">Oops, something went wrong!</li>
+         <li id="and"> & </li>
+         <li id="pay">pay {{amount}}</li>
+      </ul>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
+      <script type="text/javascript">
+         var opts = {
+           lines: 16,         // The number of lines to draw
+           length: 3,         // The length of each line
+           width: 3,          // The line thickness
+           radius: 14,        // The radius of the inner circle
+           color: '#614E97',  // #rgb or #rrggbb
+           speed: 2.1,        // Rounds per second
+           trail: 60,         // Afterglow percentage
+           shadow: false,     // Whether to render a shadow
+           hwaccel: false     // Whether to use hardware acceleration
+         };
+         var target = document.getElementById('spin');
+         var spinner = new Spinner(opts).spin(target);
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="/bundles/quickyformapp/js/lib/jquery.2_0_0.min.js">\x3C/script>')</script>
+      <script type="text/javascript" src="assets/common.js"></script>
+      <script type="text/javascript">
+         var jumps = [];
+         freezeframe_options = {
+         animation_icon_image: false,
+         loading_background_image: false,
+         loading_background_color: "transparent",
+         loading_background_position: "top left",
+         trigger_event: "focus",
+             loading_fade_in_speed: 1,
+         auto_run: false
+         }
+      </script>
+      <script type="text/javascript" src="assets/default.js"></script>
+   </body>
+</html>

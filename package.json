@@ -1,0 +1,14 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "a way to escape the stress",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/http-server/bin/http-server -p 8080"
+  },
+  "author": "carlo - blackout - denaro",
+  "license": "GPL2",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
